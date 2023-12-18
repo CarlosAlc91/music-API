@@ -9,6 +9,7 @@ import ArtistDetail from "./pages/ArtistDetail";
 import Playlist from "./pages/Playlist";
 import PlaylistDetail from "./pages/PlaylistDetail";
 import PlaylistShared from "./pages/PlaylistShared";
+import PrivateRoutes from "./components/auth/PrivateRoutes";
 
 function App() {
   return (
@@ -16,18 +17,23 @@ function App() {
       {/* 1. configuracion de rutas */}
       <Routes>
         {/* 2. Route path='donde se va a renderizar' element={que se va a renderizar }*/}
-        {/* rutas protegidas */}
+        {/* rutas publicas */}
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
-        {/* ruta base o home */}
-        <Route path="/" element={<Home />} />
-        {/* rutas protegidas */}
-        <Route path="/tracks/:id" element={<TrackDetail />} />
-        <Route path="/artists/:id" element={<ArtistDetail />} />
-        <Route path="/playlist" element={<Playlist />} />
-        <Route path="/playlist/:id" element={<PlaylistDetail />} />
-        {/* rutas publicas */}
-        <Route path="/playlist/public/:id" element={<PlaylistShared />} />
+
+        {/* RUTAS PROTEGIDAS */}
+        {/* 4. PROTECCION DE RUTAS CON ROUTE */}
+        <Route element={<PrivateRoutes />}>
+          {/* ruta base o home */}
+          <Route path="/" element={<Home />} />
+          {/* rutas protegidas */}
+          <Route path="/tracks/:id" element={<TrackDetail />} />
+          <Route path="/artists/:id" element={<ArtistDetail />} />
+          <Route path="/playlist" element={<Playlist />} />
+          <Route path="/playlist/:id" element={<PlaylistDetail />} />
+          {/* rutas publicas */}
+          <Route path="/playlist/public/:id" element={<PlaylistShared />} />
+        </Route>
         {/* ruta error */}
         <Route path="*" element={<Page404 />} />
         {/* 3. GO TO REGISTER.JSX */}
