@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ContainerAuth from "../components/layout/ContainerAuth";
+import { axiosMusic } from "../config/axios.config.js";
 /* 1. MAQUETACION DE LA PAGINA */
 /* 2. GO TO ContainerAuth.jsx */
 /* 3. DELETE INFO FROM MAIN AND ADD COMPONENT ContainerAuth */
@@ -8,12 +9,23 @@ import ContainerAuth from "../components/layout/ContainerAuth";
 const Register = () => {
   /* 5. GET FORM INFO and PASS IT TO FORM
    */
+
+  /* 5.5 useNavigate */
+  const navigate = useNavigate();
   const handlerSubmit = (e) => {
     /* 5.1 to remove reload everytime we click on create e.preventDefault() */
     e.preventDefault();
-    /* 5.2 get form info (target form) */
+    /* 5.2 get user's info email, usernamw and password (target form) */
     const data = Object.fromEntries(new FormData(e.target));
     console.log(data);
+    /* 5.3 create my own axios to insert my own URL 
+    GO TO axios.config.js
+    */
+    /* 5.4 peticion con axiosMusic */
+    axiosMusic
+      .post("/api/auth/register", data)
+      .then(() => navigate("/auth/login"))
+      .catch((err) => console.log(err));
   };
   return (
     /* main container */
