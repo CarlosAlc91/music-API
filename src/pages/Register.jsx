@@ -26,6 +26,8 @@ const Register = () => {
       .post("/api/auth/register", data)
       .then(() => navigate("/auth/login"))
       .catch((err) => console.log(err));
+
+    /* 5.6 GO TO LOGIN */
   };
   return (
     /* main container */
