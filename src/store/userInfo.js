@@ -5,7 +5,7 @@ import { create } from "zustand"
 import { persist } from "zustand/middleware"
 
 /* 2. definir valor inicial del estado global */
-const initialState = {
+const INITIAL_STATE = {
   email: "",
   name: "",
   token: ""
@@ -16,16 +16,23 @@ const initialState = {
 export const useUserInfo = create(persist(
   (set) => ({
     /* 4.1 estado global */
-    user: initialState,
+    user: INITIAL_STATE,
     /* 4.2 funcion para cambiar el estado con el parametro set */
     login: (infoLogin) => {
       set({ user: infoLogin })
+    },
+    /* 4.4 funcion logout */
+    logout: () => {
+      set({ user: INITIAL_STATE })
+      localStorage.removeItem("userInfo")
+      /* 5. GO TO PRINCIPALLAYOUT */
     }
   }),
   /* 4.3 como se va a guardar en localstorage */
   {
     name: "userInfo"
   }
+
 ))
 
 

@@ -10,18 +10,22 @@ const PrivateRoutes = () => {
   if (user.token) {
     /* 3. AGREGAR COMPONENTE OUTLET*/
     /* 6. agregar el componente PrincipalLayout */
-    /* return <PrincipalLayout>
-      <Outlet />
-    </PrincipalLayout>; */
+    /*  return (
+      <PrincipalLayout>
+        <Outlet />
+      </PrincipalLayout>
+    ); */
   } else {
     /* 4. SINO, VETE AL LOGIN */
     /* return <Navigate to={"/auth/login"} />; */
   }
+
   return (
     <PrincipalLayout>
       <Outlet />
     </PrincipalLayout>
   );
+
   /* 5. GO TO PPrincialLayout */
 };
 export default PrivateRoutes;
