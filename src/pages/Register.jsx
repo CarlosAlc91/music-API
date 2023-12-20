@@ -24,7 +24,10 @@ const Register = () => {
     /* 5.4 peticion con axiosMusic */
     axiosMusic
       .post("/api/auth/register", data)
-      .then(() => navigate("/auth/login"))
+      .then(() => {
+        alert("User created");
+        navigate("/auth/login");
+      })
       .catch((err) => console.log(err));
 
     /* 5.6 GO TO LOGIN */

@@ -6,7 +6,7 @@ import axios from "axios"
 const axiosMusic = axios.create({
   /* 2.1 copiar base URL de  https://documenter.getpostman.com/view/25561359/2s93zCY17q#ea6f896c-2eaa-440c-8f72-313027607945*/
 
-  baseURL: "https://music-app-api.2.us-1.fl0.io"
+  baseURL: "https://music-app-api.2.us-1.fl0.io/"
 })
 
 /* 3. exportar la funcion */

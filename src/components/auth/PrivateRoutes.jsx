@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useUserInfo } from "../../store/userInfo";
+import { useUserInfo } from "../../store/userInfo.js";
 import PrincipalLayout from "../layout/PrincipalLayout";
 
 const PrivateRoutes = () => {
