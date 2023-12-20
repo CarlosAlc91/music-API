@@ -2,6 +2,7 @@
 /* 2. GO TO PRIVATEROUTES */
 /* 3. MAQUETACION DE layout */
 /* 4. GO TO userInfo */
+/* 9. GO TO ContainerMusic.jsx */
 
 import { Link } from "react-router-dom";
 import { LogoutIcon, PlayIcon, PlaylistIcon } from "../shared/Icons";
@@ -35,7 +36,9 @@ const PrincipalLayout = ({ children }) => {
         {/* 8.2 ternaria para mostrar contenido */}
         <article
           className={`absolute  -bottom-4 translate-y-full grid gap-2 bg-purple-light p-3 rounded-lg border border-yellow-border transition-[right] ${
-            isShowAuthOptions ? "right-4" : "-right-full"
+            isShowAuthOptions
+              ? "right-4 duration-300 ease-in"
+              : "-right-full duration-300 ease-in"
           }`}
         >
           {/* 7. se agrega el to para que redirecciones a las playlists */}
@@ -56,7 +59,7 @@ const PrincipalLayout = ({ children }) => {
           </button>
         </article>
       </header>
-      <section className="flex justify-center items-center pt-10">
+      <section className="flex justify-center items-center pt-10 px-4">
         {children}
       </section>
     </section>
